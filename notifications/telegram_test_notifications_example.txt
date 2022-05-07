@@ -1,0 +1,45 @@
+// Template
+java \
+"-DprojectName=${PROJECT_NAME}" \
+"-Denv=${ENVIRONMENT}" \
+"-DreportLink=${BUILD_URL}" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=${PATH_TO_FILE}" \
+-jar allure-notifications-3.1.2.jar
+
+// Local in one line
+java "-DprojectName=Local test run" "-Denv=PROD" "-DreportLink=qa.guru/" "-Dcomm=Any comment here" "-Dconfig.file=notifications/telegram_config.json" -jar notifications/allure-notifications-3.1.2.jar
+
+
+// Local in multiple lines
+java \
+"-DprojectName=Local test run" \
+"-Denv=PROD" \
+"-DreportLink=qa.guru/" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=notifications/telegram_config.json" \
+-jar notifications/allure-notifications-3.1.2.jar
+
+
+// Jenkins
+java \
+"-DprojectName=Tests Nikita.S" \
+"-Denv=DEV" \
+"-DreportLink=QA.GURU.Nikita.S" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=notifications/telegram_config.json" \
+-jar notifications/allure-notifications-3.1.2.jar
+
+curl -X POST \
+                             -H 'Content-Type: application/json' \
+                             -d '{"chat_id": "-691432999", "text": "This is a test from curl", "disable_notification": true}' \
+                             https://api.telegram.org/bot5257649379:AAF0e1ZLZwy0Z6IGLqqLdNQBeotCul4vSng/sendMessage
+
+
+java \
+"-DprojectName=${PROJECT_NAME}" \
+"-Denv=${ENVIRONMENT}" \
+"-DreportLink=${BUILD_URL}" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=notifications/telegram_config.json" \
+-jar notifications/allure-notifications-3.1.2.jar
