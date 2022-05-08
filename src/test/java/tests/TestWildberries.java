@@ -88,7 +88,7 @@ public class TestWildberries extends TestBase {
 
     @Tag("smoke")
     @Test
-    @DisplayName("Проверка виджета смены языка с Русского на Беларусский")
+    @DisplayName("Проверка виджета смены языка с Русского на Белорусский")
     void testSwitchLanguage() {
 
         step("Открыть главную страницу" + baseUrl, () -> {
