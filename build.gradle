@@ -35,6 +35,10 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()

@@ -6,30 +6,28 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 
-public class TestOzon extends TestBase {
+public class TestWildberries extends TestBase {
 
 
     @Test
-    @DisplayName("Проверка Ozon в хедере")
+    @DisplayName("Проверка наличия слова Wildberries в хедере")
     void testLogotipOzon() {
         step("Открыть главную страницу", () -> {
             open(baseUrl);
         });
-        step("Проверить наличие надписи Ozon в хедере", () -> {
-            $("[data-widget=header]").should(text("Ozon"));
+        step("Проверить есть ли в зедере слово Wildberries", () -> {
+            $x("//div[@class='header__container']").should(text("Wildberries"));
         });
-
     }
 
 
     @Test
     @DisplayName("Навигация по каталогу")
-    void testKatalog(){
+    void testKatalog() {
 
         step("Открыть главную страницу", () -> {
             open(baseUrl);
@@ -99,8 +97,6 @@ public class TestOzon extends TestBase {
         });
 
     }
-
-
 
 
 }
