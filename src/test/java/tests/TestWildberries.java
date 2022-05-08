@@ -1,102 +1,122 @@
 package tests;
 
+import helpers.Attach;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Link;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class TestWildberries extends TestBase {
 
-
+    @Owner("Курс QA.GURU 13 UNIT")
+    @Link(value = "Тестирование UI сайта", url = "https://www.wildberries.ru/")
+    @Feature("Задачи в репозитории")
+    @Tag("smoke")
     @Test
     @DisplayName("Проверка наличия слова Wildberries в хедере")
-    void testLogotipOzon() {
-        step("Открыть главную страницу", () -> {
+    void testControlTitleText() {
+        step("Открыть главную страницу" + baseUrl, () -> {
             open(baseUrl);
         });
-        step("Проверить есть ли в зедере слово Wildberries", () -> {
+        step("Проверить есть ли в хедере слово Wildberries", () -> {
             $x("//div[@class='header__container']").should(text("Wildberries"));
         });
     }
 
-
+    @Tag("smoke")
     @Test
-    @DisplayName("Навигация по каталогу")
-    void testKatalog() {
+    @DisplayName("Проверка работоспособности поиска товаров на главной странице сайта и отображение количества товаров")
+    void testCheckSearchOnHomepage() {
 
-        step("Открыть главную страницу", () -> {
+        step("Открыть главную страницу" + baseUrl, () -> {
             open(baseUrl);
         });
-        step("Кликнуть на кнопку Каталог", () -> {
-            $("[class='ui-b4 ui-b6']").click();
+        step("Ввести в строку поиска \"футболка мужская\" и нажать Enter", () -> {
+            $x("//input[@id='searchInput']").setValue("футболка мужская").pressEnter();
         });
-        step("Кликнуть на пункт \"Системные блоки\"", () -> {
-            $(By.linkText("Системные блоки")).click();
+        step("Проверить наличие запроса \"футболка мужская\" в строке результатов", () -> {
+            $(".searching-results__title").shouldHave(text("футболка мужская"));
         });
-        step("Проверить что нахожусь в раздере \"Системные блоки\"", () -> {
-            $("[data-widget=catalogResultsHeader]").shouldHave(text("Системные блоки"));
+        step("Проверить видимость отображения количества найденных товаров на странице", () -> {
+            $(".goods-count").shouldBe(visible);
         });
     }
 
-
+    @Tag("smoke")
     @Test
-    @DisplayName("Поиск процессора amd ryzen 5 5600x")
-    void testSearchXiaomi() {
+    @DisplayName("Добавление самых популярных мужских брюк в корзину")
+    void testCheckBasketShop() {
 
-        step("Открыть главную страницу", () -> {
+        step("Открыть главную страницу" + baseUrl, () -> {
             open(baseUrl);
         });
-        step("В строку поиска ввести amd ryzen 5 5600x", () -> {
-            $("[name=text]").setValue("amd ryzen 5 5600x");
+        step("Кликнуть по значку каталога в левом углу", () -> {
+            $(".nav-element__burger-line").click();
         });
-        step("В выпадающем меню выбрать пункт 'бренд Xiaomi'", () -> {
-            $("[href='/search/?from_global=true&text=amd+ryzen+5+5600x']").click();
+        step("Навести мышку на категорию \"Мужчинам\"", () -> {
+            $x("//a[@class='menu-burger__main-list-link menu-burger__main-list-link--566']").hover();
         });
-        step("Проверить что нахожусь на странице с процессором amd ryzen 5 5600x", () -> {
-            $("[data-widget=meta]").shouldHave(text("amd ryzen 5 5600x"));
+        step("Кликнуть на раздел \"Брюки\"", () -> {
+            $x("//a[@href='/catalog/muzhchinam/odezhda/bryuki-i-shorty']").click();
         });
-    }
-
-
-    @Test
-    @DisplayName("Добавление товара в корзину")
-    void testItemCart() {
-
-        step("Открыть карточку c товаром", () -> {
-            open(baseUrl +
-                    "product/videokarta-msi-geforce-rtx-3080-ti-12-gb-3080-ti-gaming-x-trio-12g-560949480/?advert=gLZI_cGoSJ595YMs5Wn9tJgrd_iA9IbWvUgSz0J38L7OFTNV8Tk4IiEi3TTjIu9EAobsWDE8t1fOXrNHP7HGvTag36GqkTWKgVJjmKEGlyQmZm3sAlc_YyJjkUWPoUxbxWKb4pYmXLLd2ccYJBvWrYzzKDy1JWTvi0OD2ihBfVzQiq5_UYY_bD-c2DCTUmyqTWyde4QPCHc8-aXBXt4il7uhSQB1C8KoyY38gTBZWYgezl-sWb57BJtWEblgX_ALgxbGtLl-IfGTPcUUVtjEwG5dOIXgYmpakyiKlvYH9Rk5dWHyad4TrQr3VfqcLIKQDL47EO-2tZF-Kh6IC6dSCYarjB-xtwhBzgDnOZ1pgWwTxhBpLhntGEov5ddibN88ROrngmFqVYVQhsvQZl0OBV_PLGX_KnIQvWD8kBuod67WaeJ3ObPxVLBLWj0zzXZmH7vyF9xIZVJwPwXn2mZt0J1JHVJHzFGWiDDLn15I9Yo2DfjMAL3QtzmcxSQsB-OBVUOwnFC-1SyNH15a8loizTF3Wk56e6JPfeE9ui_cCSrfeOg0LUkTlTTgBaq9Gz68tUv_w0NsGHsAin1k8TkI8Q&keywords=3080ti+rtx+видеокарта&sh=J9CUxX3Z2A");
+        step("Кликнуть по интересующим нас брюкам на странице", () -> {
+            $x("//img[@alt='Брюки STR style']").click();
         });
-        step("Нажать на кнопку Добавить в корзину", () -> {
-            $("[data-widget=webAddToCart]").click();
+        step("Кликнуть на 48 размер", () -> {
+            $x("//span[normalize-space()='48']").click();
         });
-        step("Перейти в корзину", () -> {
-            $("[href='/cart']").click();
+        step("Кликнуть на кнопку добавить в корзину", () -> {
+            $x("//span[contains(text(),'Добавить в корзину')]").click();
         });
-        step("Проверить что товар в корзине", () -> {
-            $("[class='ta4 ta5']").shouldHave(text("Видеокарта MSI GeForce RTX 3080 Ti 12 ГБ"));
+        step("Кликнуть на перейти в корзину", () -> {
+            $x("//a[contains(@class,'btn-base j-go-to-basket')]").click();
+        });
+        step("Проверить наличие брюк в корзине которые были изначально добавлены", () -> {
+            $x("//span[@class='good-info__good-name']").shouldHave(text("Брюки мужские спортивные больших размеров широкие штаны"));
         });
     }
 
+    @Tag("smoke")
     @Test
-    @DisplayName("Навигация Ozon Travel")
+    @DisplayName("Проверка виджета смены языка с Русского на Беларусский")
+    void testSwitchLanguage() {
+
+        step("Открыть главную страницу" + baseUrl, () -> {
+            open(baseUrl);
+        });
+        step("Навести мышку на виджет смены языка", () -> {
+            $("span[class='simple-menu__link simple-menu__link--country j-wba-header-item'] span:nth-child(1)")
+                    .hover();
+        });
+        step("Выбрать из списка Беларусский язык", () -> {
+            $x("//span[normalize-space()='(Belarus)']").click();
+        });
+        step("Проверить изменился ли город в меня геолокации на \"Минск\"", () -> {
+            $x("//span[@class='simple-menu__link simple-menu__link--address j-geocity-link j-wba-header-item']")
+                    .shouldHave(text("Минск"));
+        });
+    }
+
+    @Test
+    @DisplayName("Проверка на наличие ошибок в console log ")
     void testNavigation() {
-        step("Открыть главную страницу", () -> {
+        step("Открыть главную страницу" + baseUrl, () -> {
             open(baseUrl);
         });
-        step("Нажать на пункт Ozon Travel", () -> {
-            $("[href='https://www.ozon.ru/travel?perehod=ozon_menu_header']").click();
+        step("Консольные логи не должны содержать значение -  'SEVERE'", () -> {
+            String consoleLogs = Attach.getConsoleLogs();
+            String errorText = "SEVERE";
+            assertThat(consoleLogs).doesNotContain(errorText);
         });
-        step("Проверить что попал на страницу Ozon Travel", () -> {
-            $("[data-widget='seoPurchaseAdvantages']")
-                    .shouldHave(text("Покупать авиа- и ж/д билеты на Ozon удобно!"));
-        });
-
     }
-
-
 }
