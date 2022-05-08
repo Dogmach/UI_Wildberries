@@ -3,13 +3,13 @@
 
 ## Содержание:
 
-- [Технологии и инструменты](#earth_africa-технологии-и-инструменты)
-- [Реализованные проверки](#earth_africa-Реализованные-проверки)
-- [Сборка в Jenkins](#earth_africa-Jenkins-job)
-- [Запуск из терминала](#earth_africa-Запуск-тестов-из-терминала)
-- [Allure отчет](#earth_africa-Allure-отчет)
-- [Отчет в Telegram](#earth_africa-Уведомление-в-Telegram-при-помощи-бота)
-- [Видео примеры прохождения тестов](#earth_africa-Примеры-видео-о-прохождении-тестов)
+- [Технологии и инструменты](#технологии-и-инструменты)
+- [Реализованные проверки](#реализованные-проверки)
+- [Сборка в Jenkins](#параметры-сборки-в-jenkins)
+- [Запуск из терминала](#запуск-тестов-из-терминала)
+- [Allure отчет](#-отчет-в-allure-report)
+- [Отчет в Telegram](#-уведомление-в-telegram-при-помощи-бота)
+- [Видео примеры прохождения тестов](#-видео-прохождения-теста)
 
 ## Технологии и инструменты
 
@@ -66,7 +66,7 @@ test
 -Dversion=${VERSION}
 ```
 
-## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/10_DikayaAV_unit13/allure/">Allure report</a>
+## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/c11-dogmach666_unit13/2/allure/">Allure report</a>
 
 ### Основное окно
 
@@ -74,7 +74,7 @@ test
 <img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_2.png">
 </p>
 
-### :cherries: Тесты
+### Тесты
 
 <p align="center">
 <img title="Allure Tests" src="images/screenshots/Screenshot_3.png">
