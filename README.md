@@ -33,17 +33,19 @@
 - ✓ Проверка виджета смены языка с Русского на Беларусский.
 - ✓ Проверка на наличие ошибок в console log.
 
-## <img src="images/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Jenkins <a target="_blank" href="https://jenkins.autotests.cloud/job/10_DikayaAV_unit13/"> job </a>
+## <img src="images/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> работа в <a target="_blank" href="https://jenkins.autotests.cloud/job/10_DikayaAV_unit13/"> Jenkins </a>
 <p align="center">
-<a href="https://jenkins.autotests.cloud/job/c11-dogmach666_unit13/"><img src="images/screens/Screenshot_1.png" alt="Jenkins"/></a>
+<a href="https://jenkins.autotests.cloud/job/c11-dogmach666_unit13/"><img src="images/screenshots/Screenshot_1.png" alt="Jenkins"/></a>
 </p>
 
 ### Параметры сборки в Jenkins:
 
+- user (логин удалённого браузера)
+- password (пароль удаленного браузера)
+- remoteBrowser (адрес удаленного сервера Selenoid с параметрами user & password)
 - browser (браузер, по умолчанию chrome)
-- version (версия браузера, по умолчанию 91.0)
 - size (размер окна браузера, по умолчанию 1920x1080)
-- remoteUrl (логин, пароль и адрес удаленного сервера selenoid)
+- version (версия браузера, по умолчанию 99.0)
 
 ## Запуск тестов из терминала
 
@@ -56,41 +58,43 @@ gradle clean test
 ```
 clean
 test
+-Duser=${USER}
+-Dpassword=${PASSWORD}
+-DremoteBrowser=${REMOTE_BROWSER}
 -Dbrowser=${BROWSER}
+-Dsize=${BROUSERSIZE}
 -Dversion=${VERSION}
--Dsize=${BROWSER_SIZE}
--Durl=${REMOTE_URL}
 ```
 
 ## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/10_DikayaAV_unit13/allure/">Allure report</a>
 
-### :lady_beetle: Основное окно
+### Основное окно
 
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screens/Screenshot_523.png">
+<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_2.png">
 </p>
 
 ### :cherries: Тесты
 
 <p align="center">
-<img title="Allure Tests" src="images/screens/Screenshot_524.png">
+<img title="Allure Tests" src="images/screenshots/Screenshot_3.png">
 </p>
 
-### :cut_of_meat: Графики
+### Графики
 
 <p align="center">
-<img title="Allure Graphics" src="images/screens/Screenshot_525.png">
+<img title="Allure Graphics" src="images/screenshots/Screenshot_4.png">
 </p>
 
 ## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram при помощи бота
 
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screens/Screenshot_528.png" >
+<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_5.png" >
 </p>
 
 
 ## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Видео прохождения теста
 
 <p align="center">
-<img title="Selenoid Video" src="images/gif/видео.gif" width="250" height="153"  alt="video"> 
+<img title="Selenoid Video" src="images/gif/Gif_1.gif" width="750" height="459"  alt="video"> 
 </p>
