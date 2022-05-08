@@ -11,7 +11,7 @@
 - [Отчет в Telegram](#earth_africa-Уведомление-в-Telegram-при-помощи-бота)
 - [Видео примеры прохождения тестов](#earth_africa-Примеры-видео-о-прохождении-тестов)
 
-## :bird: Технологии и инструменты
+## Технологии и инструменты
 
 <p align="center">
 <a href="https://www.jetbrains.com/idea/"><img src="images/logo/Idea.svg" width="50" height="50"  alt="IDEA"/></a>
@@ -25,27 +25,27 @@
 <a href="https://www.jenkins.io/"><img src="images/logo/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a>
 </p>
 
-## :boom: Реализованные проверки
+## Реализованные проверки
 
-- ✓ Поиск вакансии QA Automation
-- ✓ Открытие статьи о Biocad и Exchange (параметризованные тесты)
-- ✓ Поиск информации о компании Biocad в скачанном PDF файле
-- ✓ Смена языка с русского на английский
-- ✓ Заполнение Запроса в отдел продаж
+- ✓ Проверка наличия слова Wildberries в хедере.
+- ✓ Проверка работоспособности поиска товаров на главной странице сайта и отображение количества товаров.
+- ✓ Добавление самых популярных мужских брюк в корзину.
+- ✓ Проверка виджета смены языка с Русского на Беларусский.
+- ✓ Проверка на наличие ошибок в console log.
 
 ## <img src="images/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Jenkins <a target="_blank" href="https://jenkins.autotests.cloud/job/10_DikayaAV_unit13/"> job </a>
 <p align="center">
-<a href="https://jenkins.autotests.cloud/job/10_DikayaAV_unit13/"><img src="images/screens/Screenshot_522.png" alt="Jenkins"/></a>
+<a href="https://jenkins.autotests.cloud/job/c11-dogmach666_unit13/"><img src="images/screens/Screenshot_1.png" alt="Jenkins"/></a>
 </p>
 
-### :maple_leaf: Параметры сборки в Jenkins:
+### Параметры сборки в Jenkins:
 
 - browser (браузер, по умолчанию chrome)
 - version (версия браузера, по умолчанию 91.0)
 - size (размер окна браузера, по умолчанию 1920x1080)
 - remoteUrl (логин, пароль и адрес удаленного сервера selenoid)
 
-## :japanese_ogre: Запуск тестов из терминала
+## Запуск тестов из терминала
 
 Локальный запуск:
 ```

@@ -108,7 +108,7 @@ public class TestWildberries extends TestBase {
     }
 
     @Test
-    @DisplayName("Проверка на наличие ошибок в console log ")
+    @DisplayName("Проверка на наличие ошибок в console log")
     void testNavigation() {
         step("Открыть главную страницу" + baseUrl, () -> {
             open(baseUrl);
