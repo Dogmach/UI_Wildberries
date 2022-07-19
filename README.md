@@ -1,7 +1,7 @@
-# Проект по автоматизации тестирования для Wildberries 
+# Проект по автоматизации тестирования для Интернет-магазина Wildberries 
 <img src="images/logo/max_logo.png" width="700" height="200"  alt="IDEA"/>
 
-<a target="_blank" href="https://www.wildberries.ru">Веб сайт Wildberries</a>
+<a target="_blank" href="https://www.wildberries.ru">Веб сайт интернет-магазина Wildberries</a>
 
 ## Содержание:
 
