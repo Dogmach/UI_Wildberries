@@ -62,7 +62,7 @@ public class TestWildberries extends TestBase {
 
     @Tag("smoke")
     @Test
-    @DisplayName("Добавление самых популярных мужских брюк в корзину")
+    @DisplayName("Добавление мужских брюк в корзину")
     void testCheckBasketShop() {
 
         step("Открыть главную страницу" + baseUrl, () -> {
