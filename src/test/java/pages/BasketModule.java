@@ -14,11 +14,11 @@ public class BasketModule {
                     " j-menu-drop-link')][contains(text(),'Брюки')]"),
             plantsOfInterest = $x("//img[@alt='Брюки STR style']"),
             size48 = $x("//span[normalize-space()='48']"),
-            buttonBasket = $x("//span[contains(text(),'Добавить в корзину')]"),
-            goToBasket = $x("//a[contains(@class,'btn-base j-go-to-basket')]"),
+            buttonBasket = $x("//div[contains(@class,'product-page__aside-container j-price-block')]//span[contains(@class,'hide-mobile')][contains(text(),'Добавить в корзину')]"),
+            goToBasket = $x("//div[contains(@class,'product-page__aside-container j-price-block')]//a[contains(@class,'btn-base j-go-to-basket')][contains(text(),'Перейти в корзину')]"),
             goodInfoGoodName = $x("//span[@class='good-info__good-name']");
 
-    private String platsFullName = "Брюки мужские спортивные больших размеров широкие штаны";
+    private String platsFullName = "Брюки, STR style";
 
     public BasketModule clickToBurgerLine() {
         burgerLine.click();
