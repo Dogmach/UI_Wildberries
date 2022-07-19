@@ -43,7 +43,7 @@ public class TestWildberries extends TestBase {
 
     @Tag("smoke")
     @Test
-    @DisplayName("Поиск товара на главной странице сайта, отображение количества товара")
+    @DisplayName("Поиск товара на главной странице сайта")
     void testCheckSearchOnHomepage() {
 
         step("Открыть главную страницу" + baseUrl, () -> {
@@ -54,9 +54,6 @@ public class TestWildberries extends TestBase {
         });
         step("Проверить наличие запроса \"футболка мужская\" в строке результатов", () -> {
             mainPage.checkForRequest();
-        });
-        step("Проверить видимость отображения количества найденных товаров на странице", () -> {
-            mainPage.checkNumberOfGoods();
         });
     }
 

@@ -10,8 +10,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 public class MainPage {
     private SelenideElement headerContainer = $x("//div[@class='header__container']"),
             searchInput = $x("//input[@id='searchInput']"),
-            searchingResultTitle = $(".searching-results__title"),
-            goodsCount =  $(".goods-count");
+            searchingResultTitle = $(".searching-results__title");
 
     String wildberries = "Wildberries",
     mansTShirt = "футболка мужская";
@@ -33,11 +32,6 @@ public class MainPage {
 
     public MainPage checkForRequest(){
         searchingResultTitle.shouldHave(text(mansTShirt));
-        return this;
-    }
-
-    public MainPage checkNumberOfGoods(){
-        goodsCount.shouldBe(visible);
         return this;
     }
 
