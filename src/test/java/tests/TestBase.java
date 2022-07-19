@@ -20,6 +20,9 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "99");
 
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        //password and user for remote browser
         String user = System.getProperty("user");
         String password = System.getProperty("password");
 
@@ -27,9 +30,7 @@ public class TestBase {
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        Configuration.remote = "https://" + user + ":" + password + "@" + System.getProperty("remoteBrowser");
-
-        SelenideLogger.addListener("allure", new AllureSelenide());
+        Configuration.remote = "https://" + user + ":" + password + "@" + System.getProperty("remoteBrowser", "selenoid.autotests.cloud/wd/hub");
     }
 
     @AfterEach

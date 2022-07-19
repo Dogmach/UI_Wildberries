@@ -89,7 +89,7 @@ public class TestWildberries extends TestBase {
         step("Кликнуть на перейти в корзину", () -> {
             basketModule.clickGoToBasket();
         });
-        step("Проверить наличие брюк в корзине которые были изначально добавлены", () -> {
+        step("Проверить отображение стоимости товара в корзине", () -> {
             basketModule.checkAvailabilityPlants();
         });
     }

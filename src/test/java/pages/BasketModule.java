@@ -3,20 +3,22 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class BasketModule {
     private SelenideElement burgerLine = $(".nav-element__burger-line"),
-            menuBurger = $x("//a[@class='menu-burger__main-list-link menu-burger__main-list-link--566']"),
-            plants = $x("//div[contains(@class,'menu-burger__drop-list-item j-menu-drop-item j-menu-drop-item-566 menu-burger__drop-list-item--active')]//a[contains(@class,'menu-burger__link j-menu-drop-link')][contains(text(),'Брюки')]"),
-            plantsOfInterest = $x("//img[@alt='Брюки STR style']"),
-            size48 = $x("//span[normalize-space()='48']"),
-            buttonBasket = $x("//div[contains(@class,'product-page__aside-container j-price-block')]//span[contains(@class,'hide-mobile')][contains(text(),'Добавить в корзину')]"),
-            goToBasket = $x("//div[contains(@class,'product-page__aside-container j-price-block')]//a[contains(@class,'btn-base j-go-to-basket')][contains(text(),'Перейти в корзину')]"),
-            goodInfoGoodName = $x("//span[@class='good-info__good-brand ']");
+            menuBurger = $(".menu-burger__main-list-link.menu-burger__main-list-link--566"),
+            plants = $(byText("Брюки")),
+            plantsOfInterest = $x("//div[@id='c68988778']//img[@alt='Брюки Barouz Jeans']"),
+            size48 = $x("//span[normalize-space()='32']"),
+            buttonBasket = $(byText("Добавить в корзину")),
+            goToBasket = $(byText("Перейти в корзину")),
+            priceToBasket = $x("//div[@class='list-item__price-new']");
 
-    private String platsFullName = "Брюки";
+    private String platsFullName = "Брюки",
+            nameOfPlants = "STR style";
 
     public BasketModule clickToBurgerLine() {
         burgerLine.click();
@@ -29,7 +31,7 @@ public class BasketModule {
     }
 
     public BasketModule clickOnPlants() {
-        plants.shouldHave(Condition.text("Брюки")).click();
+        plants.click();
         return this;
     }
 
@@ -54,7 +56,7 @@ public class BasketModule {
     }
 
     public BasketModule checkAvailabilityPlants() {
-        goodInfoGoodName.shouldHave(Condition.attribute("Штаны"));
+        priceToBasket.shouldBe(Condition.visible).shouldHave(Condition.text("1 620"));
         return this;
     }
 
