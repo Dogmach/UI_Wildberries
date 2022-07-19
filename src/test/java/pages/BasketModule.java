@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class BasketModule {
     private SelenideElement burgerLine = $(".nav-element__burger-line"),
-            menuBurger = $("//a[@class='menu-burger__main-list-link menu-burger__main-list-link--566']"),
-            plants = $("//a[@href='/catalog/muzhchinam/odezhda/bryuki-i-shorty']"),
-            plantsOfInterest = $("//img[@alt='Брюки STR style']"),
-            size48 = $("//span[normalize-space()='48']"),
+            menuBurger = $x("//a[@class='menu-burger__main-list-link menu-burger__main-list-link--566']"),
+            plants = $x("//a[@href='/catalog/muzhchinam/odezhda/bryuki-i-shorty']"),
+            plantsOfInterest = $x("//img[@alt='Брюки STR style']"),
+            size48 = $x("//span[normalize-space()='48']"),
             buttonBasket = $x("//span[contains(text(),'Добавить в корзину')]"),
             goToBasket = $x("//a[contains(@class,'btn-base j-go-to-basket')]"),
             goodInfoGoodName = $x("//span[@class='good-info__good-name']");
