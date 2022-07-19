@@ -9,7 +9,9 @@ import static com.codeborne.selenide.Selenide.$x;
 public class BasketModule {
     private SelenideElement burgerLine = $(".nav-element__burger-line"),
             menuBurger = $x("//a[@class='menu-burger__main-list-link menu-burger__main-list-link--566']"),
-            plants = $x("//a[@href='https://www.wildberries.ru/catalog/muzhchinam/odezhda/bryuki-i-shorty']"),
+            plants = $x("//div[contains(@class,'menu-burger__drop-list-item j-menu-drop-item j-menu-drop-item-566" +
+                    " menu-burger__drop-list-item--active')]//a[contains(@class,'menu-burger__link" +
+                    " j-menu-drop-link')][contains(text(),'Брюки')]"),
             plantsOfInterest = $x("//img[@alt='Брюки STR style']"),
             size48 = $x("//span[normalize-space()='48']"),
             buttonBasket = $x("//span[contains(text(),'Добавить в корзину')]"),
@@ -53,7 +55,7 @@ public class BasketModule {
         return this;
     }
 
-    public BasketModule checkAvailabilityPlants(){
+    public BasketModule checkAvailabilityPlants() {
         goodInfoGoodName.shouldHave(Condition.text(platsFullName));
         return this;
     }
