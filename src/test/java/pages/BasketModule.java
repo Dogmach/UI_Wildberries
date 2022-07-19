@@ -16,7 +16,7 @@ public class BasketModule {
             size48 = $x("//span[normalize-space()='48']"),
             buttonBasket = $x("//div[contains(@class,'product-page__aside-container j-price-block')]//span[contains(@class,'hide-mobile')][contains(text(),'Добавить в корзину')]"),
             goToBasket = $x("//div[contains(@class,'product-page__aside-container j-price-block')]//a[contains(@class,'btn-base j-go-to-basket')][contains(text(),'Перейти в корзину')]"),
-            goodInfoGoodName = $x("//span[@class='good-info__good-name']");
+            goodInfoGoodName = $x("//span[@class='good-info__good-brand ']");
 
     private String platsFullName = "Брюки, STR style";
 
