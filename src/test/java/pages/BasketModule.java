@@ -54,7 +54,7 @@ public class BasketModule {
     }
 
     public BasketModule checkAvailabilityPlants() {
-        goodInfoGoodName.shouldHave(Condition.attribute("Штаны"))
+        goodInfoGoodName.shouldHave(Condition.attribute("Штаны"));
         return this;
     }
 
