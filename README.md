@@ -13,9 +13,11 @@
 
 :heavy_check_mark: [Allure отчет](#-отчет-в-allure-report)
 
-:heavy_check_mark: [Отчет в Telegram](#-уведомление-в-telegram-при-помощи-бота)
+:heavy_check_mark: [Интеграция с Allure TestOps](#-интеграция-с-allure-testops)
 
 :heavy_check_mark: [Видео примеры прохождения тестов](#-видео-прохождения-теста)
+
+:heavy_check_mark: [Отчет в Telegram](#-уведомление-в-telegram-при-помощи-бота)
 
 ## Технологии и инструменты
 
@@ -95,13 +97,6 @@ test
 </p>
 
 
-## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Видео прохождения теста
-
-<p align="center">
-<img title="Selenoid Video" src="images/gif/Gif_1.gif" width="750" height="459"  alt="video"> 
-</p>
-
-
 ## <img src="images/logo/Allure_EE.svg" width="25" height="25"  alt="Allure"/></a> Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/1481/)
 
 ### Dashboards
@@ -112,6 +107,12 @@ test
 ### Test cases
 <p align="center">
 <img title="TestOps Test cases" src="images/screenshots/Screenshot_7.png">
+</p>
+
+## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Видео прохождения теста
+
+<p align="center">
+<img title="Selenoid Video" src="images/gif/Gif_1.gif" width="750" height="459"  alt="video"> 
 </p>
 
 ## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram при помощи бота
