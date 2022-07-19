@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.sleep;
 public class TestBase {
 
     @BeforeAll
-    static void beforeAll() {;
+    static void beforeAll() {
         Configuration.baseUrl = "https://www.wildberries.ru/";
         Configuration.browserSize = System.getProperty("size", "1920x1080");
         Configuration.browser = System.getProperty("browser", "chrome");

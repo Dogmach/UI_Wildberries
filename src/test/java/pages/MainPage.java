@@ -3,9 +3,8 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
+import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
     private SelenideElement headerContainer = $x("//div[@class='header__container']"),
@@ -13,7 +12,7 @@ public class MainPage {
             searchingResultTitle = $(".searching-results__title");
 
     String wildberries = "Wildberries",
-    mansTShirt = "футболка мужская";
+            mansTShirt = "футболка мужская";
 
     public MainPage openPage() {
         open(baseUrl);
@@ -30,9 +29,8 @@ public class MainPage {
         return this;
     }
 
-    public MainPage checkForRequest(){
+    public MainPage checkForRequest() {
         searchingResultTitle.shouldHave(text(mansTShirt));
         return this;
     }
-
 }

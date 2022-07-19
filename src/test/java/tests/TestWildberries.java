@@ -1,6 +1,5 @@
 package tests;
 
-import helpers.Attach;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
@@ -13,12 +12,8 @@ import pages.ConsoleLogs;
 import pages.LanguageChancheWidget;
 import pages.MainPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
-import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class TestWildberries extends TestBase {

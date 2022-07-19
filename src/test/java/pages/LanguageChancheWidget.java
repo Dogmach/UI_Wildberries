@@ -27,6 +27,4 @@ public class LanguageChancheWidget {
         geocityMenu.shouldHave(Condition.text(minsk));
         return this;
     }
-
-
 }
