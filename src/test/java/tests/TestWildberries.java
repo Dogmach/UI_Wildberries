@@ -1,6 +1,7 @@
 package tests;
 
 import helpers.Attach;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
@@ -31,6 +32,7 @@ public class TestWildberries extends TestBase {
     @Feature("Задачи в репозитории")
     @Tag("smoke")
     @Test
+    @AllureId("11395")
     @DisplayName("Проверка наличия слова Wildberries в хедере")
     void testControlTitleText() {
         step("Открыть главную страницу" + baseUrl, () -> {

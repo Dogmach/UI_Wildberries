@@ -94,15 +94,28 @@ test
 <img title="Allure Graphics" src="images/screenshots/Screenshot_4.png">
 </p>
 
-## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram при помощи бота
-
-<p align="center">
-<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_5.png" >
-</p>
-
 
 ## <img src="images/logo/Selenoid.svg" width="25" height="25"  alt="Allure"/></a> Видео прохождения теста
 
 <p align="center">
 <img title="Selenoid Video" src="images/gif/Gif_1.gif" width="750" height="459"  alt="video"> 
+</p>
+
+
+## <img src="images/logo/Allure_EE.svg" width="25" height="25"  alt="Allure"/></a> Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/1481/)
+
+### Dashboards
+<p align="center">
+<img title="TestOps dashboards" src="images/screenshots/Screenshot_6.png">
+</p>
+
+### Test cases
+<p align="center">
+<img title="TestOps Test cases" src="images/screenshots/Screenshot_7.png">
+</p>
+
+## <img src="images/logo/Telegram.svg" width="25" height="25"  alt="Allure"/></a> Уведомление в Telegram при помощи бота
+
+<p align="center">
+<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_5.png" >
 </p>
