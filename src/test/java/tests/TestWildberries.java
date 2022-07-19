@@ -7,6 +7,10 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import pages.BasketModule;
+import pages.ConsoleLogs;
+import pages.LanguageChancheWidget;
+import pages.MainPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -17,6 +21,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class TestWildberries extends TestBase {
+    MainPage mainPage = new MainPage();
+    BasketModule basketModule = new BasketModule();
+    LanguageChancheWidget languageChancheWidget = new LanguageChancheWidget();
+    ConsoleLogs consoleLogs = new ConsoleLogs();
 
     @Owner("Курс QA.GURU 13 UNIT")
     @Link(value = "Тестирование UI сайта", url = "https://www.wildberries.ru/")
@@ -26,29 +34,29 @@ public class TestWildberries extends TestBase {
     @DisplayName("Проверка наличия слова Wildberries в хедере")
     void testControlTitleText() {
         step("Открыть главную страницу" + baseUrl, () -> {
-            open(baseUrl);
+            mainPage.openPage();
         });
         step("Проверить есть ли в хедере слово Wildberries", () -> {
-            $x("//div[@class='header__container']").should(text("Wildberries"));
+            mainPage.checkHeader();
         });
     }
 
     @Tag("smoke")
     @Test
-    @DisplayName("Проверка работоспособности поиска товаров на главной странице сайта и отображение количества товаров")
+    @DisplayName("Поиск товара на главной странице сайта, отображение количества товара")
     void testCheckSearchOnHomepage() {
 
         step("Открыть главную страницу" + baseUrl, () -> {
-            open(baseUrl);
+            mainPage.openPage();
         });
         step("Ввести в строку поиска \"футболка мужская\" и нажать Enter", () -> {
-            $x("//input[@id='searchInput']").setValue("футболка мужская").pressEnter();
+            mainPage.writeInSearchBar();
         });
         step("Проверить наличие запроса \"футболка мужская\" в строке результатов", () -> {
-            $(".searching-results__title").shouldHave(text("футболка мужская"));
+            mainPage.checkForRequest();
         });
         step("Проверить видимость отображения количества найденных товаров на странице", () -> {
-            $(".goods-count").shouldBe(visible);
+            mainPage.checkNumberOfGoods();
         });
     }
 
@@ -58,31 +66,31 @@ public class TestWildberries extends TestBase {
     void testCheckBasketShop() {
 
         step("Открыть главную страницу" + baseUrl, () -> {
-            open(baseUrl);
+            mainPage.openPage();
         });
         step("Кликнуть по значку каталога в левом углу", () -> {
-            $(".nav-element__burger-line").click();
+            basketModule.clickToBurgerLine();
         });
         step("Навести мышку на категорию \"Мужчинам\"", () -> {
-            $x("//a[@class='menu-burger__main-list-link menu-burger__main-list-link--566']").hover();
+            basketModule.moveToMouse();
         });
         step("Кликнуть на раздел \"Брюки\"", () -> {
-            $x("//a[@href='/catalog/muzhchinam/odezhda/bryuki-i-shorty']").click();
+            basketModule.clickOnPlants();
         });
         step("Кликнуть по интересующим нас брюкам на странице", () -> {
-            $x("//img[@alt='Брюки STR style']").click();
+            basketModule.clickToPlantsOfInterest();
         });
         step("Кликнуть на 48 размер", () -> {
-            $x("//span[normalize-space()='48']").click();
+            basketModule.clickToSize48();
         });
         step("Кликнуть на кнопку добавить в корзину", () -> {
-            $x("//span[contains(text(),'Добавить в корзину')]").click();
+            basketModule.clickButtonBasket();
         });
         step("Кликнуть на перейти в корзину", () -> {
-            $x("//a[contains(@class,'btn-base j-go-to-basket')]").click();
+            basketModule.clickGoToBasket();
         });
         step("Проверить наличие брюк в корзине которые были изначально добавлены", () -> {
-            $x("//span[@class='good-info__good-name']").shouldHave(text("Брюки мужские спортивные больших размеров широкие штаны"));
+            basketModule.checkAvailabilityPlants();
         });
     }
 
@@ -92,18 +100,16 @@ public class TestWildberries extends TestBase {
     void testSwitchLanguage() {
 
         step("Открыть главную страницу" + baseUrl, () -> {
-            open(baseUrl);
+            mainPage.openPage();
         });
         step("Навести мышку на виджет смены языка", () -> {
-            $("span[class='simple-menu__link simple-menu__link--country j-wba-header-item'] span:nth-child(1)")
-                    .hover();
+            languageChancheWidget.moveTheMouse();
         });
         step("Выбрать из списка Беларусский язык", () -> {
-            $x("//span[normalize-space()='(Belarus)']").click();
+            languageChancheWidget.chooseLanguage();
         });
         step("Проверить изменился ли город в меня геолокации на \"Минск\"", () -> {
-            $x("//span[@class='simple-menu__link simple-menu__link--address j-geocity-link j-wba-header-item']")
-                    .shouldHave(text("Минск"));
+            languageChancheWidget.checkGeocity();
         });
     }
 
@@ -111,12 +117,10 @@ public class TestWildberries extends TestBase {
     @DisplayName("Проверка на наличие ошибок в console log")
     void testNavigation() {
         step("Открыть главную страницу" + baseUrl, () -> {
-            open(baseUrl);
+            mainPage.openPage();
         });
         step("Консольные логи не должны содержать значение -  'SEVERE'", () -> {
-            String consoleLogs = Attach.getConsoleLogs();
-            String errorText = "SEVERE";
-            assertThat(consoleLogs).doesNotContain(errorText);
+            consoleLogs.checkConsoleLogs();
         });
     }
 }
