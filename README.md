@@ -81,7 +81,7 @@ test
 ### Основное окно
 
 <p align="center">
-<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_2.png">
+<img title="Allure Overview Dashboard" src="images/screenshots/Screenshot_8.png">
 </p>
 
 ### Тесты
